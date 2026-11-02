@@ -1,0 +1,294 @@
+/* ==========================================================
+   Estilos del módulo de Pedidos - Genesis Lab
+   Paleta: azul petróleo + ámbar (misma de la interfaz gráfica EV02)
+   Tipografías: Space Grotesk (títulos) e Inter (texto)
+   Nomenclatura de clases: kebab-case en español.
+   ========================================================== */
+
+:root {
+  --color-primario: #0f5c6e;
+  --color-primario-oscuro: #0a3f4c;
+  --color-acento: #f5a623;
+  --color-fondo: #f3f7f8;
+  --color-superficie: #ffffff;
+  --color-texto: #1c2b30;
+  --color-texto-suave: #5b6f76;
+  --color-borde: #d5e0e3;
+  --color-error: #c0392b;
+  --radio: 12px;
+  --sombra: 0 2px 10px rgba(15, 92, 110, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--color-texto);
+  background: var(--color-fondo);
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  margin: 0;
+}
+
+/* ---------- Cabecera ---------- */
+.cabecera {
+  background: var(--color-primario);
+  color: #fff;
+  padding: 1.5rem 2rem;
+  border-bottom: 4px solid var(--color-acento);
+}
+
+.cabecera p {
+  margin: 0.25rem 0 0;
+  opacity: 0.85;
+}
+
+/* ---------- Distribución principal ---------- */
+.contenido {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  align-items: start;
+}
+
+/* ---------- Tarjetas y formulario ---------- */
+.tarjeta {
+  background: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  padding: 1.25rem;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  position: sticky;
+  top: 1rem;
+}
+
+.formulario label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.fila {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+input,
+select,
+textarea {
+  font: inherit;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--color-borde);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--color-texto);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid var(--color-acento);
+  outline-offset: 1px;
+}
+
+.error {
+  color: var(--color-error);
+  font-size: 0.78rem;
+  font-weight: 400;
+}
+
+/* ---------- Botones ---------- */
+.acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.boton {
+  font: inherit;
+  font-weight: 500;
+  padding: 0.5rem 0.9rem;
+  border-radius: 8px;
+  border: 1px solid var(--color-borde);
+  background: #fff;
+  cursor: pointer;
+}
+
+.boton:hover {
+  background: var(--color-fondo);
+}
+
+.boton-primario {
+  background: var(--color-primario);
+  border-color: var(--color-primario);
+  color: #fff;
+}
+
+.boton-primario:hover {
+  background: var(--color-primario-oscuro);
+}
+
+.boton-peligro {
+  color: var(--color-error);
+  border-color: var(--color-error);
+}
+
+/* ---------- Barra de herramientas ---------- */
+.barra-herramientas {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.buscador {
+  width: 100%;
+}
+
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.chip {
+  font: inherit;
+  font-size: 0.85rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid var(--color-borde);
+  background: #fff;
+  cursor: pointer;
+}
+
+.chip-activo {
+  background: var(--color-acento);
+  border-color: var(--color-acento);
+  font-weight: 600;
+}
+
+.contador {
+  color: var(--color-texto-suave);
+  font-size: 0.85rem;
+  margin: 0.9rem 0 0.5rem;
+}
+
+/* ---------- Lista de pedidos ---------- */
+.lista {
+  display: grid;
+  gap: 1rem;
+}
+
+.pedido-encabezado {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.75rem;
+}
+
+.pedido-id {
+  font-size: 0.75rem;
+  color: var(--color-texto-suave);
+  letter-spacing: 0.05em;
+}
+
+.pedido-datos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin: 0;
+}
+
+.pedido-datos dt {
+  font-size: 0.75rem;
+  color: var(--color-texto-suave);
+}
+
+.pedido-datos dd {
+  margin: 0.1rem 0 0;
+  font-weight: 500;
+}
+
+.pedido-notas {
+  background: var(--color-fondo);
+  border-radius: 8px;
+  padding: 0.6rem 0.8rem;
+  font-size: 0.875rem;
+  margin: 0.9rem 0 0;
+}
+
+.pedido .acciones {
+  margin-top: 1rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--color-borde);
+}
+
+.vacio {
+  text-align: center;
+  color: var(--color-texto-suave);
+  padding: 2rem;
+  border: 2px dashed var(--color-borde);
+  border-radius: var(--radio);
+}
+
+/* ---------- Etiquetas de estado ---------- */
+.estado {
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+}
+
+.estado-recibido {
+  background: #e3eef1;
+  color: var(--color-primario-oscuro);
+}
+
+.estado-en-proceso {
+  background: #fff1d6;
+  color: #8a5a00;
+}
+
+.estado-terminado {
+  background: #dff3e4;
+  color: #1f6b35;
+}
+
+.estado-entregado {
+  background: #e8e8f3;
+  color: #44447a;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 860px) {
+  .contenido {
+    grid-template-columns: 1fr;
+  }
+
+  .formulario {
+    position: static;
+  }
+
+  .pedido-datos {
+    grid-template-columns: 1fr 1fr;
+  }
+}
